@@ -219,6 +219,7 @@ def call(Map buildParams = [:]) {
         post {
             always {
                 recordIssues filters: [includeFile('xbmc/.*')], qualityGates: [[threshold: 5, type: 'TOTAL', unstable: false]], tools: [clang()]
+                addEmbeddableBadgeConfiguration(id: '$BUILD_TAG')
             }
         }
     }
